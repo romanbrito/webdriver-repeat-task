@@ -1,19 +1,17 @@
 const { studio_userName, studio_password, studio_serverUrl } = require('../../config/config');
-const { sbuxUsers } = require('../../config/sbux');
+const { potbellyUsers } = require('../../config/potbelly');
 
-describe.skip('Integrations page', () => {
+describe('Integrations page', () => {
     it('can create locations', () => {
         browser.url(studio_serverUrl);
         $("#username").setValue( studio_userName );
         $("#password").setValue( studio_password );
         $("//input[@type='submit']").click();
-        const key = 'environment';
-        const value = 'MBM';
 
         expect(browser).toHaveTitle('Menuboard Manager® Studio');
 
         $("#env-selector").click();
-        $("//header/fly-out[@id='env-selector']/ul[1]/li[1]").click();
+        $("//header/fly-out[@id='env-selector']/ul[1]/li[4]").click();
         
         const elem = $("//header/button[2]");
         expect(elem).toHaveText("Content");  
@@ -28,7 +26,7 @@ describe.skip('Integrations page', () => {
         const modal = $("//h1[contains(text(),'Add Location')]")
         expect(modal).toHaveText("Add Location");
 
-        const users = sbuxUsers;
+        const users = potbellyUsers;
         let user = '',
             name = '',
             userNow = '',
