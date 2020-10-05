@@ -1,7 +1,7 @@
 const { studio_userName, studio_password, studio_serverUrl } = require('../../config/config');
 const { sbuxUsers } = require('../../config/sbux');
 
-describe('Integrations page', () => {
+describe.skip('Integrations page', () => {
     it('can create locations', () => {
         browser.url(studio_serverUrl);
         $("#username").setValue( studio_userName );
